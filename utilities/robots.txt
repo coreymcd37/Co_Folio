@@ -1,4 +1,4 @@
 User-agent: *
-Allow: /utilities/
+Allow: /
 
-Sitemap: https://coreymcdaniel.com/utilities/sitemap.xml
+Sitemap: https://coreymcd37.github.io/Co_Folio/utilities/sitemap.xml

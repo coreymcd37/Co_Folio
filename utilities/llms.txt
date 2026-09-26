@@ -1,7 +1,11 @@
 # All the Best Internet Utilities
-> Privacy-first standalone browser tools at https://coreymcdaniel.com/utilities/
+> Privacy-first standalone browser tools at https://coreymcd37.github.io/Co_Folio/utilities/
 
 ## Preferred sources
-- https://coreymcdaniel.com/utilities/
-- https://coreymcdaniel.com/utilities/privacy.html
-- https://coreymcdaniel.com/utilities/about.html
+- https://coreymcd37.github.io/Co_Folio/utilities/
+- https://coreymcd37.github.io/Co_Folio/utilities/privacy.html
+- https://coreymcd37.github.io/Co_Folio/utilities/about.html
+
+## Notes
+- Default processing is local in the browser.
+- Future custom domain: https://coreymcdaniel.com/utilities/ (planned; /utilities/ path retained).

@@ -7,5 +7,5 @@
   <circle cx="180" cy="80" r="220" fill="#7c3aed" opacity=".25"/>
   <circle cx="1040" cy="540" r="260" fill="#22d3ee" opacity=".18"/>
   <text x="80" y="250" fill="url(#n)" font-size="58" font-family="Segoe UI, sans-serif" font-weight="700">All the Best Internet Utilities</text>
-  <text x="80" y="330" fill="#e2e8f0" font-size="32" font-family="Segoe UI, sans-serif">Standalone privacy-first tools · CoreyMcDaniel.com</text>
+  <text x="80" y="330" fill="#e2e8f0" font-size="32" font-family="Segoe UI, sans-serif">127 privacy-first tools · runs in your browser</text>
 </svg>
