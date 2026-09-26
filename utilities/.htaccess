@@ -1,0 +1,6 @@
+Options -Indexes
+ErrorDocument 404 /utilities/404.html
+AddType image/svg+xml svg
+AddType application/manifest+json webmanifest
+Header set Referrer-Policy "strict-origin-when-cross-origin"
+Header set X-Content-Type-Options "nosniff"

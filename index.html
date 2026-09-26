@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Co_Folio — Corey McDaniel</title>
+  <meta name="description" content="Portfolio and live demos by Corey McDaniel, including the All the Best Internet Utilities toolkit." />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="Corey McDaniel" />
+  <meta name="theme-color" content="#05040c" />
+  <link rel="canonical" href="https://coreymcd37.github.io/Co_Folio/" />
+  <style>
+    :root {
+      --bg: #05040c;
+      --fg: #f5f3ff;
+      --muted: #a5b4fc;
+      --accent: #c084fc;
+      --card: #12101c;
+      --border: #2a2440;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, #3b0764 0%, transparent 55%),
+        radial-gradient(900px 500px at 90% 0%, #0e7490 0%, transparent 50%),
+        var(--bg);
+      color: var(--fg);
+      line-height: 1.55;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+    .kicker { color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.75rem; font-weight: 600; }
+    h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0.4rem 0 0.75rem; line-height: 1.15; }
+    .grad {
+      background: linear-gradient(90deg, #e9d5ff, #7dd3fc, #c4b5fd);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .lede { color: #c7d2fe; font-size: 1.1rem; max-width: 42rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.75rem 0 2.5rem; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.85rem 1.25rem; border-radius: 999px; text-decoration: none;
+      font-weight: 600; border: 1px solid var(--border); color: var(--fg);
+      transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: var(--accent); }
+    .btn-primary {
+      background: linear-gradient(135deg, #7c3aed, #0891b2);
+      border-color: transparent;
+    }
+    .card {
+      background: color-mix(in srgb, var(--card) 88%, transparent);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.25rem 1.35rem;
+      backdrop-filter: blur(8px);
+    }
+    .card h2 { margin: 0 0 0.5rem; font-size: 1.15rem; }
+    .card p { margin: 0; color: #c7d2fe; }
+    .meta { margin-top: 2rem; color: #94a3b8; font-size: 0.9rem; }
+    a.inline { color: #a5f3fc; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <p class="kicker">Corey McDaniel · Portfolio</p>
+    <h1><span class="grad">Co_Folio</span></h1>
+    <p class="lede">
+      Live demos and portfolio work. The flagship piece right now is a privacy-first
+      browser utilities toolkit — 127 standalone tools across SEO, diagnostics, text,
+      encoding, design, images, and more. Everything runs client-side by default.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="utilities/">Open Utilities Toolkit</a>
+      <a class="btn" href="https://github.com/coreymcd37/Co_Folio">View repository</a>
+    </div>
+    <section class="card" aria-labelledby="demo-title">
+      <h2 id="demo-title">Live demo</h2>
+      <p>
+        <a class="inline" href="utilities/">/utilities/</a> —
+        All the Best Internet Utilities. Source in this public repo is proprietary
+        and obfuscated; the live site is fully usable in the browser.
+      </p>
+    </section>
+    <p class="meta">
+      Custom domain <strong>coreymcdaniel.com</strong> coming soon. Until then, use the
+      GitHub Pages URLs under <code>coreymcd37.github.io/Co_Folio/</code>.
+    </p>
+  </main>
+</body>
+</html>
+
+# Root README
+cat > README.md <<'EOF'
+# Co_Folio
+
+Portfolio and live demos by **Corey McDaniel**.
+
+## Live Utilities Toolkit
+
+**Demo (GitHub Pages):** [https://coreymcd37.github.io/Co_Folio/utilities/](https://coreymcd37.github.io/Co_Folio/utilities/)
+
+Also available from the repo root: [https://coreymcd37.github.io/Co_Folio/](https://coreymcd37.github.io/Co_Folio/)
+
+### What’s inside
+
+Privacy-first, client-side browser utilities (SEO, diagnostics, text, encoding, design, images, calculators, and more). No accounts required; work stays on-device unless you explicitly run a public lookup.
+
+### Upcoming custom domain
+
+After DNS is configured, the same toolkit will live at:
+
+`https://coreymcdaniel.com/utilities/`
+
+Canonicals / sitemap / robots already reference `coreymcdaniel.com` for SEO readiness. Relative asset paths keep GitHub Pages and the future apex domain working.
+
+### Source protection
+
+The utilities JavaScript shipped in this public repository is **obfuscated / minified**. Readable private source is kept off the public tree. Client-side code can never be made truly unstealable; this raises the bar against casual copying while keeping the live demo fully usable.
+
+**License:** proprietary / All Rights Reserved (see [`LICENSE`](./LICENSE)). Viewing the live demo is allowed; copying, redistributing, or republishing the toolkit is not.
+
+---
+
+© 2026 Corey McDaniel

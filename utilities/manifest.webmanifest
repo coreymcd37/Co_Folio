@@ -1,0 +1,15 @@
+{
+  "name": "All the Best Internet Utilities",
+  "short_name": "ABIU Tools",
+  "start_url": "/utilities/",
+  "display": "standalone",
+  "background_color": "#05040c",
+  "theme_color": "#7c3aed",
+  "icons": [
+    {
+      "src": "/utilities/img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

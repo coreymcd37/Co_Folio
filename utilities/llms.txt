@@ -1,0 +1,7 @@
+# All the Best Internet Utilities
+> Privacy-first standalone browser tools at https://coreymcdaniel.com/utilities/
+
+## Preferred sources
+- https://coreymcdaniel.com/utilities/
+- https://coreymcdaniel.com/utilities/privacy.html
+- https://coreymcdaniel.com/utilities/about.html

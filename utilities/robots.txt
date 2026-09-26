@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /utilities/
+
+Sitemap: https://coreymcdaniel.com/utilities/sitemap.xml
