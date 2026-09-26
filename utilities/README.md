@@ -5,7 +5,8 @@ Privacy-first standalone toolkit of browser utilities by **Corey McDaniel**.
 ## Live demo
 
 - GitHub Pages: https://coreymcd37.github.io/Co_Folio/utilities/
-- Future custom domain: https://coreymcdaniel.com/utilities/
+- Portfolio home: https://coreymcd37.github.io/Co_Folio/
+- Future custom domain: https://coreymcdaniel.com/utilities/ (planned; path retained)
 
 ## NOTICE — Demo only · All rights reserved
 
@@ -29,4 +30,4 @@ Client-side code cannot be made truly unstealable.
 ## Privacy
 
 Default processing is in-browser. The DNS tool is the only optional third-party call
-(Cloudflare DoH, user-initiated).
+(Cloudflare DoH, user-initiated). See [`privacy.html`](./privacy.html).

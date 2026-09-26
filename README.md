@@ -2,30 +2,42 @@
 
 Portfolio and live demos by **Corey McDaniel**.
 
-## Live Utilities Toolkit
+**Live site:** [https://coreymcd37.github.io/Co_Folio/](https://coreymcd37.github.io/Co_Folio/)
 
-**Demo (GitHub Pages):** [https://coreymcd37.github.io/Co_Folio/utilities/](https://coreymcd37.github.io/Co_Folio/utilities/)
+## Featured app — Utilities Toolkit
 
-Also available from the repo root: [https://coreymcd37.github.io/Co_Folio/](https://coreymcd37.github.io/Co_Folio/)
+Privacy-first, client-side browser utilities (SEO, diagnostics, text, encoding, design, images, calculators, and more).
 
-### What's inside
+| | |
+|---|---|
+| **Demo** | [https://coreymcd37.github.io/Co_Folio/utilities/](https://coreymcd37.github.io/Co_Folio/utilities/) |
+| **Scale** | 127 standalone tools · 16 category workbenches |
+| **Accounts** | None required |
+| **Default mode** | On-device processing |
+| **Privacy** | [utilities/privacy.html](https://coreymcd37.github.io/Co_Folio/utilities/privacy.html) |
 
-Privacy-first, client-side browser utilities (SEO, diagnostics, text, encoding, design, images, calculators, and more). No accounts required; work stays on-device unless you explicitly run a public lookup.
+No invented side projects here — this repo is a blank-slate portfolio home plus the utilities kit.
 
-### Upcoming custom domain
+## Upcoming custom domain
 
-After DNS is configured, the same toolkit will live at:
+After DNS is configured, the same site will live at `https://coreymcdaniel.com/` with the toolkit at `https://coreymcdaniel.com/utilities/`. Relative asset paths and `/utilities/` routing are already set up for that move. Canonicals, sitemap, and robots currently point at the live GitHub Pages URLs.
 
-`https://coreymcdaniel.com/utilities/`
+## For visitors & recruiters
 
-Canonicals / sitemap / robots already reference `coreymcdaniel.com` for SEO readiness. Relative asset paths keep GitHub Pages and the future apex domain working.
+- Open the [portfolio home](https://coreymcd37.github.io/Co_Folio/) for positioning and the featured-app card.
+- Open [/utilities/](https://coreymcd37.github.io/Co_Folio/utilities/) to use the toolkit in-browser.
+- Source in this public repo is **proprietary**. Viewing the live demo is allowed; copying, redistributing, or republishing the toolkit is not. See [`LICENSE`](./LICENSE).
 
-### Source protection
+## Source protection
 
-The utilities JavaScript shipped in this public repository is **obfuscated / minified**. Readable private source is kept off the public tree. Client-side code can never be made truly unstealable; this raises the bar against casual copying while keeping the live demo fully usable.
+Utilities JavaScript shipped publicly is **obfuscated / minified**. Readable private source stays off the public tree. Client-side code cannot be made truly unstealable; this raises the bar against casual copying while keeping the demo fully usable.
 
-**License:** proprietary / All Rights Reserved (see [`LICENSE`](./LICENSE)). Viewing the live demo is allowed; copying, redistributing, or republishing the toolkit is not.
+## Stack
+
+- Static HTML / CSS / JS on GitHub Pages
+- Root landing + `/utilities/` product surface
+- `BASE` auto-detects `…/utilities` for project Pages and a future apex domain
 
 ---
 
-© 2026 Corey McDaniel
+© 2026 Corey McDaniel · All Rights Reserved
