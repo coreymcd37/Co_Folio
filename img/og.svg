@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#05040c"/><stop offset="1" stop-color="#1e1b4b"/></linearGradient>
+    <linearGradient id="n" x1="0" x2="1"><stop stop-color="#e9d5ff"/><stop offset=".5" stop-color="#7dd3fc"/><stop offset="1" stop-color="#c4b5fd"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="160" cy="60" r="240" fill="#7c3aed" opacity=".28"/>
+  <circle cx="1080" cy="560" r="280" fill="#0891b2" opacity=".2"/>
+  <text x="80" y="230" fill="url(#n)" font-size="72" font-family="Segoe UI, system-ui, sans-serif" font-weight="700">Co_Folio</text>
+  <text x="80" y="300" fill="#e2e8f0" font-size="34" font-family="Segoe UI, system-ui, sans-serif">Corey McDaniel · Product &amp; UX engineering</text>
+  <text x="80" y="370" fill="#94a3b8" font-size="26" font-family="Segoe UI, system-ui, sans-serif">Privacy-first browser utilities · 127 standalone tools</text>
+</svg>

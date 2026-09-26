@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://coreymcd37.github.io/Co_Folio/sitemap.xml

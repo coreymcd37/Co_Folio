@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page not found — Co_Folio</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#05040c" />
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://coreymcd37.github.io/Co_Folio/" />
+  <style>
+    :root { --bg:#05040c; --fg:#f5f3ff; --soft:#c7d2fe; --border:#2a2440; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: grid; place-items: center;
+      font-family: ui-sans-serif, system-ui, sans-serif; color: var(--fg);
+      background:
+        radial-gradient(900px 500px at 15% -10%, rgba(124,58,237,.4), transparent 55%),
+        radial-gradient(800px 480px at 90% 10%, rgba(8,145,178,.28), transparent 50%),
+        var(--bg);
+      padding: 1.5rem; text-align: center; line-height: 1.55;
+    }
+    h1 {
+      font-size: clamp(2.5rem, 8vw, 4rem); margin: 0 0 .5rem;
+      background: linear-gradient(90deg,#e9d5ff,#7dd3fc,#c4b5fd);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    p { color: var(--soft); max-width: 28rem; margin: 0 auto 1.5rem; }
+    .actions { display:flex; flex-wrap:wrap; gap:.75rem; justify-content:center; }
+    a {
+      display:inline-flex; padding:.85rem 1.25rem; border-radius:999px;
+      text-decoration:none; font-weight:700; color:var(--fg);
+      border:1px solid var(--border);
+    }
+    a.primary { background: linear-gradient(135deg,#7c3aed,#0891b2); border-color:transparent; color:#fff; }
+    a:focus-visible { outline:2px solid #c084fc; outline-offset:3px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>404</h1>
+    <p>That page is not on this portfolio. Head home or open the utilities toolkit.</p>
+    <div class="actions">
+      <a class="primary" href="./">Co_Folio home</a>
+      <a href="utilities/">Utilities toolkit</a>
+    </div>
+  </main>
+</body>
+</html>

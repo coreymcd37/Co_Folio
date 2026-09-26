@@ -3,125 +3,490 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Co_Folio — Corey McDaniel</title>
-  <meta name="description" content="Portfolio and live demos by Corey McDaniel, including the All the Best Internet Utilities toolkit." />
-  <meta name="robots" content="index,follow" />
+  <title>Corey McDaniel — Co_Folio | Product &amp; UX Engineering</title>
+  <meta name="description" content="Portfolio of Corey McDaniel. Flagship live demo: a privacy-first browser utilities toolkit with 127 standalone tools. Client-side by default. No accounts required." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="author" content="Corey McDaniel" />
   <meta name="theme-color" content="#05040c" />
   <link rel="canonical" href="https://coreymcd37.github.io/Co_Folio/" />
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="img/favicon.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Co_Folio" />
+  <meta property="og:title" content="Corey McDaniel — Co_Folio | Product &amp; UX Engineering" />
+  <meta property="og:description" content="Privacy-first browser utilities toolkit — 127 standalone tools. Client-side by default. Built by Corey McDaniel." />
+  <meta property="og:url" content="https://coreymcd37.github.io/Co_Folio/" />
+  <meta property="og:image" content="https://coreymcd37.github.io/Co_Folio/img/og.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Corey McDaniel — Co_Folio" />
+  <meta name="twitter:description" content="Privacy-first browser utilities toolkit — 127 standalone tools. Client-side by default." />
+  <meta name="twitter:image" content="https://coreymcd37.github.io/Co_Folio/img/og.svg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://coreymcd37.github.io/Co_Folio/#website",
+        "url": "https://coreymcd37.github.io/Co_Folio/",
+        "name": "Co_Folio",
+        "description": "Portfolio and live demos by Corey McDaniel.",
+        "publisher": { "@id": "https://coreymcd37.github.io/Co_Folio/#person" },
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://coreymcd37.github.io/Co_Folio/#person",
+        "name": "Corey McDaniel",
+        "url": "https://coreymcd37.github.io/Co_Folio/",
+        "sameAs": ["https://github.com/coreymcd37"]
+      }
+    ]
+  }
+  </script>
   <style>
     :root {
       --bg: #05040c;
       --fg: #f5f3ff;
       --muted: #a5b4fc;
+      --soft: #c7d2fe;
+      --dim: #94a3b8;
       --accent: #c084fc;
       --card: #12101c;
       --border: #2a2440;
+      --ok: #34d399;
+      --radius: 1.1rem;
+      --max: 1080px;
+      --nav-h: 4rem;
     }
-    * { box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background:
-        radial-gradient(1200px 600px at 10% -10%, #3b0764 0%, transparent 55%),
-        radial-gradient(900px 500px at 90% 0%, #0e7490 0%, transparent 50%),
+        radial-gradient(1200px 600px at 8% -12%, rgba(124, 58, 237, 0.45) 0%, transparent 55%),
+        radial-gradient(900px 520px at 92% 0%, rgba(8, 145, 178, 0.35) 0%, transparent 50%),
+        radial-gradient(700px 400px at 50% 110%, rgba(99, 102, 241, 0.18) 0%, transparent 55%),
         var(--bg);
       color: var(--fg);
       line-height: 1.55;
     }
-    .wrap { max-width: 880px; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
-    .kicker { color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.75rem; font-weight: 600; }
-    h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0.4rem 0 0.75rem; line-height: 1.15; }
+    a { color: #a5f3fc; }
+    a:hover { color: var(--accent); }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid #c084fc;
+      outline-offset: 3px;
+    }
+    .skip {
+      position: absolute;
+      left: -999px;
+      top: 0.75rem;
+    }
+    .skip:focus {
+      left: 0.75rem;
+      z-index: 100;
+      background: #1e1b4b;
+      color: #fff;
+      padding: 0.5rem 0.85rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+    }
+    .wrap {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      height: var(--nav-h);
+      backdrop-filter: blur(16px);
+      background: rgba(5, 4, 12, 0.72);
+      border-bottom: 1px solid rgba(168, 85, 247, 0.22);
+    }
+    .nav {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      color: var(--fg);
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .brand-mark {
+      width: 2.15rem;
+      height: 2.15rem;
+      border-radius: 0.7rem;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #6d28d9, #0891b2);
+      box-shadow: 0 0 16px rgba(168, 85, 247, 0.55);
+    }
+    .brand-mark svg { width: 1.25rem; height: 1.25rem; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav-links a {
+      color: var(--dim);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+    }
+    .nav-links a:hover { color: var(--fg); background: rgba(168, 85, 247, 0.14); }
+    .nav-cta {
+      background: linear-gradient(135deg, #7c3aed, #0891b2) !important;
+      color: #fff !important;
+      border: none;
+    }
+    .nav-cta:hover { filter: brightness(1.08); }
+
+    main { padding: 2.5rem 0 4rem; }
+    .kicker {
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin: 0 0 0.75rem;
+    }
+    h1 {
+      font-size: clamp(2.15rem, 5.5vw, 3.35rem);
+      margin: 0 0 0.9rem;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      max-width: 16ch;
+    }
     .grad {
       background: linear-gradient(90deg, #e9d5ff, #7dd3fc, #c4b5fd);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
-    .lede { color: #c7d2fe; font-size: 1.1rem; max-width: 42rem; }
-    .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.75rem 0 2.5rem; }
+    .lede {
+      color: var(--soft);
+      font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+      max-width: 40rem;
+      margin: 0;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 1.75rem 0 2rem;
+    }
     .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 0.85rem 1.25rem; border-radius: 999px; text-decoration: none;
-      font-weight: 600; border: 1px solid var(--border); color: var(--fg);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.85rem 1.3rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      color: var(--fg);
       transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
     }
-    .btn:hover { transform: translateY(-1px); border-color: var(--accent); }
+    .btn:hover { transform: translateY(-1px); border-color: var(--accent); color: var(--fg); }
     .btn-primary {
       background: linear-gradient(135deg, #7c3aed, #0891b2);
       border-color: transparent;
+      color: #fff;
     }
-    .card {
-      background: color-mix(in srgb, var(--card) 88%, transparent);
+    .btn-primary:hover { color: #fff; filter: brightness(1.06); }
+    .trust {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin: 0 0 2.75rem;
+    }
+    .trust div {
+      background: color-mix(in srgb, var(--card) 82%, transparent);
       border: 1px solid var(--border);
-      border-radius: 1rem;
-      padding: 1.25rem 1.35rem;
+      border-radius: 0.9rem;
+      padding: 0.9rem 1rem;
       backdrop-filter: blur(8px);
     }
-    .card h2 { margin: 0 0 0.5rem; font-size: 1.15rem; }
-    .card p { margin: 0; color: #c7d2fe; }
-    .meta { margin-top: 2rem; color: #94a3b8; font-size: 0.9rem; }
-    a.inline { color: #a5f3fc; }
+    .trust b {
+      display: block;
+      font-size: 1.25rem;
+      margin-bottom: 0.15rem;
+    }
+    .trust span { color: var(--dim); font-size: 0.85rem; }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin: 0 0 1rem;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.35rem;
+      letter-spacing: -0.01em;
+    }
+    .section-head p { margin: 0; color: var(--dim); font-size: 0.95rem; }
+
+    .app-card {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 0;
+      background: color-mix(in srgb, var(--card) 90%, transparent);
+      border: 1px solid var(--border);
+      border-radius: calc(var(--radius) + 0.15rem);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 0 0 rgba(99, 102, 241, 0);
+    }
+    .app-card:hover {
+      border-color: rgba(168, 85, 247, 0.55);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(99, 102, 241, 0.18);
+      color: inherit;
+    }
+    .app-body { padding: 1.5rem 1.55rem; }
+    .app-body .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--ok);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin: 0 0 0.55rem;
+    }
+    .app-body h3 {
+      margin: 0 0 0.55rem;
+      font-size: 1.35rem;
+      letter-spacing: -0.015em;
+    }
+    .app-body p { margin: 0 0 1rem; color: var(--soft); }
+    .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 1.15rem; }
+    .chip {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.28rem 0.65rem;
+      background: rgba(15, 10, 36, 0.55);
+    }
+    .app-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-weight: 700;
+      color: #a5f3fc;
+    }
+    .app-side {
+      padding: 1.5rem;
+      background:
+        linear-gradient(160deg, rgba(124, 58, 237, 0.28), rgba(8, 145, 178, 0.18)),
+        #0b0820;
+      border-left: 1px solid var(--border);
+      display: grid;
+      align-content: center;
+      gap: 0.85rem;
+    }
+    .metric {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.65rem 0.8rem;
+      border-radius: 0.75rem;
+      background: rgba(5, 4, 12, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .metric span { color: var(--dim); font-size: 0.85rem; }
+    .metric strong { color: var(--fg); }
+
+    .about {
+      margin-top: 2.75rem;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 1rem;
+    }
+    .panel {
+      background: color-mix(in srgb, var(--card) 88%, transparent);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.35rem 1.4rem;
+      backdrop-filter: blur(8px);
+    }
+    .panel h2 { margin: 0 0 0.55rem; font-size: 1.15rem; }
+    .panel p { margin: 0; color: var(--soft); }
+    .panel ul {
+      margin: 0.75rem 0 0;
+      padding: 0 0 0 1.1rem;
+      color: var(--soft);
+    }
+    .panel li { margin: 0.35rem 0; }
+
+    .site-footer {
+      border-top: 1px solid rgba(168, 85, 247, 0.2);
+      padding: 1.5rem 0 2.5rem;
+      color: var(--dim);
+      font-size: 0.9rem;
+    }
+    .foot {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem 1.5rem;
+    }
+    .foot a { color: var(--dim); text-decoration: none; }
+    .foot a:hover { color: #a5f3fc; }
+    .foot-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+    @media (max-width: 820px) {
+      .trust { grid-template-columns: 1fr 1fr; }
+      .app-card, .about { grid-template-columns: 1fr; }
+      .app-side { border-left: none; border-top: 1px solid var(--border); }
+      h1 { max-width: none; }
+    }
+    @media (max-width: 520px) {
+      .trust { grid-template-columns: 1fr; }
+      .nav-links a:not(.nav-cta) { display: none; }
+    }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <p class="kicker">Corey McDaniel · Portfolio</p>
-    <h1><span class="grad">Co_Folio</span></h1>
-    <p class="lede">
-      Live demos and portfolio work. The flagship piece right now is a privacy-first
-      browser utilities toolkit — 127 standalone tools across SEO, diagnostics, text,
-      encoding, design, images, and more. Everything runs client-side by default.
-    </p>
-    <div class="actions">
-      <a class="btn btn-primary" href="utilities/">Open Utilities Toolkit</a>
-      <a class="btn" href="https://github.com/coreymcd37/Co_Folio">View repository</a>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="./" aria-label="Co_Folio home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16V8l7 8 7-8v8"/></svg>
+        </span>
+        <span>Co_Folio</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#apps">Apps</a>
+        <a href="#about">About</a>
+        <a href="https://github.com/coreymcd37/Co_Folio">GitHub</a>
+        <a class="nav-cta" href="utilities/">Open Utilities</a>
+      </nav>
     </div>
-    <section class="card" aria-labelledby="demo-title">
-      <h2 id="demo-title">Live demo</h2>
-      <p>
-        <a class="inline" href="utilities/">/utilities/</a> —
-        All the Best Internet Utilities. Source in this public repo is proprietary
-        and obfuscated; the live site is fully usable in the browser.
+  </header>
+
+  <main id="main">
+    <section class="wrap" aria-labelledby="hero-title">
+      <p class="kicker">Corey McDaniel · Product &amp; UX engineering</p>
+      <h1 id="hero-title"><span class="grad">Ship useful tools people can trust.</span></h1>
+      <p class="lede">
+        I design and build privacy-first web products with clear UX, solid semantics,
+        and production polish. The live flagship here is a full browser utilities
+        toolkit — 127 focused tools that run on-device by default.
       </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="utilities/">Explore Utilities Toolkit</a>
+        <a class="btn" href="https://github.com/coreymcd37/Co_Folio">View repository</a>
+      </div>
+      <div class="trust" role="list" aria-label="Product highlights">
+        <div role="listitem"><b>127</b><span>Standalone utilities</span></div>
+        <div role="listitem"><b>16</b><span>Category workbenches</span></div>
+        <div role="listitem"><b>0</b><span>Required accounts</span></div>
+        <div role="listitem"><b>Local</b><span>Default processing</span></div>
+      </div>
     </section>
-    <p class="meta">
-      Custom domain <strong>coreymcdaniel.com</strong> coming soon. Until then, use the
-      GitHub Pages URLs under <code>coreymcd37.github.io/Co_Folio/</code>.
-    </p>
+
+    <section class="wrap" id="apps" aria-labelledby="apps-title">
+      <div class="section-head">
+        <div>
+          <h2 id="apps-title">Featured app</h2>
+          <p>Live demos you can open in the browser right now.</p>
+        </div>
+      </div>
+      <a class="app-card" href="utilities/" aria-labelledby="app-title">
+        <div class="app-body">
+          <p class="eyebrow"><span aria-hidden="true">●</span> Live on GitHub Pages</p>
+          <h3 id="app-title">All the Best Internet Utilities</h3>
+          <p>
+            A production-style toolkit for SEO, diagnostics, text, encoding, design,
+            images, calculators, and more. Paste content, drop an image, or generate
+            tags — without creating an account or shipping your work to a server.
+          </p>
+          <div class="chips" aria-label="Capabilities">
+            <span class="chip">Privacy-first</span>
+            <span class="chip">Static HTML/CSS/JS</span>
+            <span class="chip">Mobile-ready</span>
+            <span class="chip">No trackers</span>
+          </div>
+          <span class="app-cta">Open /utilities/ <span aria-hidden="true">→</span></span>
+        </div>
+        <div class="app-side" aria-hidden="true">
+          <div class="metric"><span>Tools</span><strong>127</strong></div>
+          <div class="metric"><span>Workbenches</span><strong>16</strong></div>
+          <div class="metric"><span>Accounts</span><strong>None</strong></div>
+          <div class="metric"><span>Default mode</span><strong>On-device</strong></div>
+        </div>
+      </a>
+    </section>
+
+    <section class="wrap about" id="about" aria-labelledby="about-title">
+      <article class="panel">
+        <h2 id="about-title">About this portfolio</h2>
+        <p>
+          Co_Folio is a blank-slate portfolio home for live product work. The utilities
+          kit is the primary public demo: practical tools, coherent chrome, and a
+          privacy model you can read in plain language.
+        </p>
+        <ul>
+          <li>Semantics-first HTML, accessible navigation, and responsive layouts</li>
+          <li>Client-side defaults; optional network use is disclosed and opt-in</li>
+          <li>Proprietary demo — view freely; redistribution is not permitted</li>
+        </ul>
+      </article>
+      <aside class="panel" aria-labelledby="soon-title">
+        <h2 id="soon-title">Custom domain</h2>
+        <p>
+          <strong>coreymcdaniel.com</strong> is planned and will point here, keeping
+          the <code>/utilities/</code> path. Until DNS is live, use the GitHub Pages
+          URLs under <code>coreymcd37.github.io/Co_Folio/</code>.
+        </p>
+      </aside>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot">
+      <p>© 2026 Corey McDaniel. All rights reserved.</p>
+      <div class="foot-links">
+        <a href="utilities/">Utilities</a>
+        <a href="utilities/about.html">About toolkit</a>
+        <a href="utilities/privacy.html">Privacy</a>
+        <a href="https://github.com/coreymcd37/Co_Folio">GitHub</a>
+        <a href="LICENSE">License</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
-
-# Root README
-cat > README.md <<'EOF'
-# Co_Folio
-
-Portfolio and live demos by **Corey McDaniel**.
-
-## Live Utilities Toolkit
-
-**Demo (GitHub Pages):** [https://coreymcd37.github.io/Co_Folio/utilities/](https://coreymcd37.github.io/Co_Folio/utilities/)
-
-Also available from the repo root: [https://coreymcd37.github.io/Co_Folio/](https://coreymcd37.github.io/Co_Folio/)
-
-### What’s inside
-
-Privacy-first, client-side browser utilities (SEO, diagnostics, text, encoding, design, images, calculators, and more). No accounts required; work stays on-device unless you explicitly run a public lookup.
-
-### Upcoming custom domain
-
-After DNS is configured, the same toolkit will live at:
-
-`https://coreymcdaniel.com/utilities/`
-
-Canonicals / sitemap / robots already reference `coreymcdaniel.com` for SEO readiness. Relative asset paths keep GitHub Pages and the future apex domain working.
-
-### Source protection
-
-The utilities JavaScript shipped in this public repository is **obfuscated / minified**. Readable private source is kept off the public tree. Client-side code can never be made truly unstealable; this raises the bar against casual copying while keeping the live demo fully usable.
-
-**License:** proprietary / All Rights Reserved (see [`LICENSE`](./LICENSE)). Viewing the live demo is allowed; copying, redistributing, or republishing the toolkit is not.
-
----
-
-© 2026 Corey McDaniel
