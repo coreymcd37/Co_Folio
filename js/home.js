@@ -1,5 +1,7 @@
 (function () {
   const I = window.CMI18N;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   const applyLang = (code) => {
     const meta = I.langs.find((l) => l.code === code) || I.langs[0];
     const t = I.dict[code] || I.dict.en;
@@ -31,6 +33,22 @@
       btn.addEventListener("click", () => applyLang(btn.getAttribute("data-lang")));
     });
 
+    const menuBtn = document.getElementById("menu-toggle");
+    const nav = document.getElementById("site-nav");
+    menuBtn?.addEventListener("click", () => {
+      const open = nav?.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    });
+    nav?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (!nav.classList.contains("open")) return;
+        nav.classList.remove("open");
+        menuBtn?.setAttribute("aria-expanded", "false");
+        menuBtn?.setAttribute("aria-label", "Open menu");
+      });
+    });
+
     const forced = new URLSearchParams(location.search).get("month");
     const now = new Date();
     if (forced) {
@@ -45,22 +63,30 @@
       host.innerHTML = month.words.map((w, i) => {
         const letter = (month.name[i] || w[0]).toUpperCase();
         return `<div class="acro-row"><span class="letter">${letter}</span><span class="phrase">${w}</span></div>`;
-      }).join("") + `<svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path fill="#f3c7c4" d="M12 21s-6.4-4.2-9.2-8.1C.7 10.3 1.2 7 3.8 5.6 6 4.5 8.2 5.4 12 9c3.8-3.6 6-4.5 8.2-3.4 2.6 1.4 3.1 4.7 1 7.3C18.4 16.8 12 21 12 21z"/></svg>`;
+      }).join("") + `<svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path fill="#c084fc" d="M12 21s-6.4-4.2-9.2-8.1C.7 10.3 1.2 7 3.8 5.6 6 4.5 8.2 5.4 12 9c3.8-3.6 6-4.5 8.2-3.4 2.6 1.4 3.1 4.7 1 7.3C18.4 16.8 12 21 12 21z"/></svg>`;
     }
 
     const video = document.getElementById("opener-video");
     const next = document.getElementById("month-stage");
-    const go = () => next?.scrollIntoView({ behavior: "smooth" });
-    if (video) {
+    const scrollBehavior = reduceMotion ? "auto" : "smooth";
+    const go = () => next?.scrollIntoView({ behavior: scrollBehavior });
+    const fallbackDelay = reduceMotion ? 0 : 6500;
+
+    if (reduceMotion) {
+      // Skip autoplay-driven scroll; user can still tap Begin.
+      if (video) {
+        try { video.pause(); } catch (_) {}
+      }
+    } else if (video) {
       video.addEventListener("ended", go);
       video.addEventListener("error", () => {
         document.getElementById("opener-fallback")?.classList.add("show");
-        setTimeout(go, 6500);
+        setTimeout(go, fallbackDelay);
       });
       const play = video.play();
-      if (play && play.catch) play.catch(() => setTimeout(go, 6500));
+      if (play && play.catch) play.catch(() => setTimeout(go, fallbackDelay));
     } else {
-      setTimeout(go, 6500);
+      setTimeout(go, fallbackDelay);
     }
     document.getElementById("skip-opener")?.addEventListener("click", go);
 

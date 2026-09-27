@@ -37,11 +37,12 @@
   </script>
 </head>
 <body>
-  <a class="skip" href="#month-stage">Skip opener</a>
+  <a class="skip" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="wrap nav">
       <a class="brand" href="./"><span class="brand-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M5 16V8l7 8 7-8v8"/></svg></span><span data-i="brand">Co_Folio</span></a>
-      <nav class="nav-links">
+      <button class="menu-btn" type="button" id="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">Menu</button>
+      <nav class="nav-links" id="site-nav" aria-label="Primary">
         <a href="#tools" data-i="tools">Tools</a>
         <a href="#works" data-i="works">Works</a>
         <a href="quotes/">Quote Note</a>
@@ -67,6 +68,7 @@
     </div>
   </header>
 
+  <main id="main">
   <section class="opener" id="opener">
     <video id="opener-video" muted playsinline autoplay poster="">
       <source src="media/opener.mp4" type="video/mp4" />
@@ -156,7 +158,7 @@
 
   <section class="wrap" style="padding-bottom:40px">
     <div class="panel">
-      <h2 data-i="subscribe">Subscribe and drop me a note here</h2>
+      <h2 class="grad" data-i="subscribe">Subscribe and drop me a note here</h2>
       <form id="note-form" class="form">
         <label><span data-i="name">Name</span><input name="name" required autocomplete="name" /></label>
         <label><span data-i="email">Email</span><input name="email" type="email" required autocomplete="email" /></label>
@@ -166,6 +168,8 @@
       </form>
     </div>
   </section>
+
+  </main>
 
   <footer class="site-footer">
     <div class="wrap foot-grid">
