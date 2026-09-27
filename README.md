@@ -1,8 +1,12 @@
 # Co_Folio
 
-Portfolio and live demos by **Corey McDaniel**.
+Portfolio site by **Corey McDaniel**.
 
-**Live site:** [https://coreymcd37.github.io/Co_Folio/](https://coreymcd37.github.io/Co_Folio/)
+**Live site:** [https://coreymcdaniel.com/](https://coreymcdaniel.com/) (custom domain; GitHub Pages project URL [https://coreymcd37.github.io/corey/](https://coreymcd37.github.io/corey/) until DNS is fully live)
+
+## Homepage
+
+The root homepage is the CoreyMcDaniel.com site (works, quotes, legal, monthly stage). The utilities toolkit remains at [/utilities/](./utilities/).
 
 ## Featured app — Utilities Toolkit
 
@@ -10,22 +14,16 @@ Privacy-first, client-side browser utilities (SEO, diagnostics, text, encoding, 
 
 | | |
 |---|---|
-| **Demo** | [https://coreymcd37.github.io/Co_Folio/utilities/](https://coreymcd37.github.io/Co_Folio/utilities/) |
+| **Demo** | [https://coreymcdaniel.com/utilities/](https://coreymcdaniel.com/utilities/) |
 | **Scale** | 127 standalone tools · 16 category workbenches |
 | **Accounts** | None required |
 | **Default mode** | On-device processing |
-| **Privacy** | [utilities/privacy.html](https://coreymcd37.github.io/Co_Folio/utilities/privacy.html) |
-
-No invented side projects here — this repo is a blank-slate portfolio home plus the utilities kit.
-
-## Upcoming custom domain
-
-After DNS is configured, the same site will live at `https://coreymcdaniel.com/` with the toolkit at `https://coreymcdaniel.com/utilities/`. Relative asset paths and `/utilities/` routing are already set up for that move. Canonicals, sitemap, and robots currently point at the live GitHub Pages URLs.
+| **Privacy** | [utilities/privacy.html](./utilities/privacy.html) |
 
 ## For visitors & recruiters
 
-- Open the [portfolio home](https://coreymcd37.github.io/Co_Folio/) for positioning and the featured-app card.
-- Open [/utilities/](https://coreymcd37.github.io/Co_Folio/utilities/) to use the toolkit in-browser.
+- Open the [portfolio home](https://coreymcdaniel.com/) for the new site.
+- Open [/utilities/](https://coreymcdaniel.com/utilities/) to use the toolkit in-browser.
 - Source in this public repo is **proprietary**. Viewing the live demo is allowed; copying, redistributing, or republishing the toolkit is not. See [`LICENSE`](./LICENSE).
 
 ## Source protection
@@ -35,8 +33,8 @@ Utilities JavaScript shipped publicly is **obfuscated / minified**. Readable pri
 ## Stack
 
 - Static HTML / CSS / JS on GitHub Pages
-- Root landing + `/utilities/` product surface
-- `BASE` auto-detects `…/utilities` for project Pages and a future apex domain
+- Root homepage + `/utilities/` product surface
+- `BASE` auto-detects `…/utilities` for project Pages and apex domain
 
 ---
 

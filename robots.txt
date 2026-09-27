@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://coreymcd37.github.io/Co_Folio/sitemap.xml
+Disallow: /media/
+
+Sitemap: https://coreymcdaniel.com/sitemap.xml
