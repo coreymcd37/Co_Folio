@@ -109,7 +109,7 @@ img { max-width: 100%; }
   border-radius: 12px;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, #6d28d9, #2563eb);
+  background: linear-gradient(135deg, #6d28d9, #0891b2);
   box-shadow: 0 0 18px rgba(168, 85, 247, 0.65), inset 0 0 8px rgba(255,255,255,0.25);
 }
 .brand-mark svg { width: 22px; height: 22px; }
@@ -249,7 +249,7 @@ h1 {
   color: #fff;
 }
 .btn-primary {
-  background: linear-gradient(135deg, #7c3aed, #2563eb);
+  background: linear-gradient(135deg, #7c3aed, #0891b2);
   box-shadow: 0 0 24px rgba(124, 58, 237, 0.45);
 }
 .btn-primary:hover { box-shadow: 0 0 32px rgba(56, 189, 248, 0.4); color: #fff; }
