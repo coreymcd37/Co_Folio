@@ -16,6 +16,8 @@
       const k = el.getAttribute("data-ph");
       if (t[k]) el.setAttribute("placeholder", t[k]);
     });
+    const langBtn = document.getElementById("lang-toggle");
+    if (langBtn) langBtn.textContent = meta.code.toUpperCase();
     const box = document.getElementById("region-links");
     if (box) {
       box.innerHTML = I.langs.map((l) => `<a href="${l.region}" rel="noopener noreferrer" hreflang="${l.hreflang}">${l.name}</a>`).join(" ");
@@ -26,27 +28,58 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     applyLang(localStorage.getItem("cm-lang") || "en");
-    document.getElementById("lang-toggle")?.addEventListener("click", () => {
-      document.getElementById("lang-list")?.classList.toggle("open");
-    });
-    document.querySelectorAll("[data-lang]").forEach((btn) => {
-      btn.addEventListener("click", () => applyLang(btn.getAttribute("data-lang")));
-    });
 
     const menuBtn = document.getElementById("menu-toggle");
     const nav = document.getElementById("site-nav");
-    menuBtn?.addEventListener("click", () => {
-      const open = nav?.classList.toggle("open");
-      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
-      menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    const langBtn = document.getElementById("lang-toggle");
+    const langList = document.getElementById("lang-list");
+
+    const setMenu = (open) => {
+      nav?.classList.toggle("open", open);
+      menuBtn?.setAttribute("aria-expanded", open ? "true" : "false");
+      menuBtn?.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    };
+    const setLang = (open) => {
+      langList?.classList.toggle("open", open);
+      langBtn?.setAttribute("aria-expanded", open ? "true" : "false");
+    };
+
+    menuBtn?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const next = !nav?.classList.contains("open");
+      setLang(false);
+      setMenu(next);
     });
-    nav?.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        if (!nav.classList.contains("open")) return;
-        nav.classList.remove("open");
-        menuBtn?.setAttribute("aria-expanded", "false");
-        menuBtn?.setAttribute("aria-label", "Open menu");
+
+    langBtn?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const next = !langList?.classList.contains("open");
+      setMenu(false);
+      setLang(next);
+    });
+
+    document.querySelectorAll("[data-lang]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        applyLang(btn.getAttribute("data-lang"));
+        setLang(false);
       });
+    });
+
+    nav?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setMenu(false));
+    });
+
+    document.addEventListener("click", (e) => {
+      const t = e.target;
+      if (!(t instanceof Element)) return;
+      if (!t.closest(".lang-menu")) setLang(false);
+      if (!t.closest(".nav-actions") && !t.closest(".nav-panel")) setMenu(false);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key !== "Escape") return;
+      setMenu(false);
+      setLang(false);
     });
 
     const forced = new URLSearchParams(location.search).get("month");
@@ -73,7 +106,6 @@
     const fallbackDelay = reduceMotion ? 0 : 6500;
 
     if (reduceMotion) {
-      // Skip autoplay-driven scroll; user can still tap Begin.
       if (video) {
         try { video.pause(); } catch (_) {}
       }

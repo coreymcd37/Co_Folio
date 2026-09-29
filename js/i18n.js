@@ -33,7 +33,14 @@ window.CMI18N = {
       footer: "A Corey McDaniel workbench. Seek first the Kingdom.",
       region: "Discover this site from your region",
       journey: "A life being shaped",
-      monthLabel: "This month"
+      monthLabel: "This month",
+      utilities: "Utilities",
+      browseAll: "Browse all utilities",
+      quickPrint: "Quick Print",
+      navHome: "Home",
+      navLegal: "Legal",
+      navContact: "Contact",
+      openUtilities: "Open Utilities"
     },
     es: {
       brand: "Co_Folio",
@@ -55,7 +62,14 @@ window.CMI18N = {
       footer: "Un taller de Corey McDaniel. Buscad primero el Reino.",
       region: "Descubre este sitio desde tu región",
       journey: "Una vida que está siendo formada",
-      monthLabel: "Este mes"
+      monthLabel: "Este mes",
+      utilities: "Utilidades",
+      browseAll: "Ver todas las utilidades",
+      quickPrint: "Impresión rápida",
+      navHome: "Inicio",
+      navLegal: "Legal",
+      navContact: "Contacto",
+      openUtilities: "Abrir utilidades"
     },
     ru: {
       brand: "Co_Folio",
@@ -77,7 +91,14 @@ window.CMI18N = {
       footer: "Мастерская Кори Макдэниела. Ищите прежде Царства.",
       region: "Найдите этот сайт в своём регионе",
       journey: "Жизнь, которую формируют",
-      monthLabel: "Этот месяц"
+      monthLabel: "Этот месяц",
+      utilities: "Утилиты",
+      browseAll: "Все утилиты",
+      quickPrint: "Быстрая печать",
+      navHome: "Главная",
+      navLegal: "Правовая информация",
+      navContact: "Контакт",
+      openUtilities: "Открыть утилиты"
     },
     zh: {
       brand: "Co_Folio",
@@ -99,7 +120,14 @@ window.CMI18N = {
       footer: "Corey McDaniel 的工作台。先求神的国。",
       region: "从你所在地区发现本站",
       journey: "被塑造的一生",
-      monthLabel: "本月"
+      monthLabel: "本月",
+      utilities: "工具集",
+      browseAll: "浏览全部工具",
+      quickPrint: "快速打印",
+      navHome: "首页",
+      navLegal: "法律",
+      navContact: "联系",
+      openUtilities: "打开工具集"
     },
     hi: {
       brand: "Co_Folio",
@@ -121,7 +149,14 @@ window.CMI18N = {
       footer: "कोरी मैकडैनियल की कार्यशाला। पहले राज्य खोजो।",
       region: "अपने देश से इस साइट को खोजें",
       journey: "गढ़ता हुआ जीवन",
-      monthLabel: "इस महीने"
+      monthLabel: "इस महीने",
+      utilities: "उपयोगिताएँ",
+      browseAll: "सभी उपयोगिताएँ देखें",
+      quickPrint: "त्वरित प्रिंट",
+      navHome: "होम",
+      navLegal: "कानूनी",
+      navContact: "संपर्क",
+      openUtilities: "उपयोगिताएँ खोलें"
     },
     ar: {
       brand: "Co_Folio",
@@ -143,7 +178,14 @@ window.CMI18N = {
       footer: "منصة كوري ماكدانيال. اطلبوا الملكوت أولاً.",
       region: "اكتشف هذا الموقع من منطقتك",
       journey: "حياة تُصاغ",
-      monthLabel: "هذا الشهر"
+      monthLabel: "هذا الشهر",
+      utilities: "الأدوات",
+      browseAll: "تصفح كل الأدوات",
+      quickPrint: "طباعة سريعة",
+      navHome: "الرئيسية",
+      navLegal: "قانوني",
+      navContact: "تواصل",
+      openUtilities: "افتح الأدوات"
     },
     de: {
       brand: "Co_Folio",
@@ -165,7 +207,14 @@ window.CMI18N = {
       footer: "Eine Werkbank von Corey McDaniel. Zuerst das Reich.",
       region: "Diese Seite in deiner Region finden",
       journey: "Ein Leben, das geformt wird",
-      monthLabel: "Dieser Monat"
+      monthLabel: "Dieser Monat",
+      utilities: "Werkzeuge",
+      browseAll: "Alle Werkzeuge durchsuchen",
+      quickPrint: "Schnelldruck",
+      navHome: "Start",
+      navLegal: "Rechtliches",
+      navContact: "Kontakt",
+      openUtilities: "Werkzeuge öffnen"
     },
     fi: {
       brand: "Co_Folio",
@@ -187,7 +236,14 @@ window.CMI18N = {
       footer: "Corey McDanielin työpöytä. Etsikää ensin valtakuntaa.",
       region: "Löydä sivusto alueeltasi",
       journey: "Muotoutuva elämä",
-      monthLabel: "Tämä kuukausi"
+      monthLabel: "Tämä kuukausi",
+      utilities: "Työkalut",
+      browseAll: "Selaa kaikkia työkaluja",
+      quickPrint: "Pikatulostus",
+      navHome: "Koti",
+      navLegal: "Juridinen",
+      navContact: "Yhteys",
+      openUtilities: "Avaa työkalut"
     },
     sv: {
       brand: "Co_Folio",
@@ -209,7 +265,14 @@ window.CMI18N = {
       footer: "En arbetsbänk av Corey McDaniel. Sök först Riket.",
       region: "Hitta sajten från din region",
       journey: "Ett liv som formas",
-      monthLabel: "Denna månad"
+      monthLabel: "Denna månad",
+      utilities: "Verktyg",
+      browseAll: "Bläddra bland alla verktyg",
+      quickPrint: "Snabbprint",
+      navHome: "Hem",
+      navLegal: "Juridiskt",
+      navContact: "Kontakt",
+      openUtilities: "Öppna verktyg"
     },
     da: {
       brand: "Co_Folio",
@@ -231,7 +294,14 @@ window.CMI18N = {
       footer: "En arbejdsbænk af Corey McDaniel. Søg først Riget.",
       region: "Find siden fra din region",
       journey: "Et liv der formes",
-      monthLabel: "Denne måned"
+      monthLabel: "Denne måned",
+      utilities: "Værktøjer",
+      browseAll: "Gennemse alle værktøjer",
+      quickPrint: "Hurtig print",
+      navHome: "Hjem",
+      navLegal: "Juridisk",
+      navContact: "Kontakt",
+      openUtilities: "Åbn værktøjer"
     },
     th: {
       brand: "Co_Folio",
@@ -253,7 +323,14 @@ window.CMI18N = {
       footer: "โต๊ะงานของ Corey McDaniel จงแสวงหาแผ่นดินก่อน",
       region: "ค้นพบเว็บนี้จากประเทศของคุณ",
       journey: "ชีวิตที่กำลังถูกหล่อหลอม",
-      monthLabel: "เดือนนี้"
+      monthLabel: "เดือนนี้",
+      utilities: "ยูทิลิตี้",
+      browseAll: "ดูยูทิลิตี้ทั้งหมด",
+      quickPrint: "พิมพ์ด่วน",
+      navHome: "หน้าแรก",
+      navLegal: "กฎหมาย",
+      navContact: "ติดต่อ",
+      openUtilities: "เปิดยูทิลิตี้"
     }
   }
 };
