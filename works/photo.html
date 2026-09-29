@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Photo | Corey McDaniel</title>
+  <meta name="description" content="Privacy-first photo tool: read and strip metadata, resize, crop, markup, and download — all on your device." />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#05040c" />
+  <link rel="canonical" href="https://coreymcdaniel.com/works/photo.html" />
+  <link rel="icon" href="../img/logo-header.png" type="image/png" />
+  <link rel="stylesheet" href="../css/home.css" />
+</head>
+<body class="photo-page">
+  <a class="skip" href="#photo-main">Skip to tool</a>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../" aria-label="Home">
+        <img class="site-logo" src="../img/logo-header.png" alt="Home" height="40" />
+      </a>
+    </div>
+  </header>
+
+  <main class="wrap photo-main" id="photo-main">
+    <h1 class="grad" data-i="photo">Photo</h1>
+    <p class="howto">All processing stays on your device.</p>
+
+    <div class="ph-layout">
+      <section class="ph-preview panel" id="previewWrap">
+        <label class="ph-drop" id="drop">
+          <input id="file" type="file" accept="image/*" hidden />
+          <span class="ph-drop-label">Drop an image or click to choose</span>
+        </label>
+        <div class="ph-canvas-wrap">
+          <canvas id="canvas" aria-label="Photo canvas"></canvas>
+        </div>
+        <p class="ph-status howto" id="status" aria-live="polite"></p>
+      </section>
+
+      <aside class="ph-side">
+        <div class="ph-tabs" id="tabs" role="tablist">
+          <button class="ph-tab is-active btn" type="button" data-tab="meta" role="tab" aria-selected="true">Metadata</button>
+          <button class="ph-tab btn" type="button" data-tab="resize" role="tab">Resize</button>
+          <button class="ph-tab btn" type="button" data-tab="crop" role="tab">Crop</button>
+          <button class="ph-tab btn" type="button" data-tab="markup" role="tab">Markup</button>
+          <button class="ph-tab btn" type="button" data-tab="export" role="tab">Export</button>
+        </div>
+
+        <div class="ph-panel panel" data-panel="meta">
+          <p class="howto">Read EXIF / XMP / IPTC when present. Strip by re-encoding on download. Field edit writes limited JPEG tags only.</p>
+          <p class="howto" id="metaEmpty" hidden>No metadata found (or none readable).</p>
+          <div class="ph-meta" id="metaList"></div>
+          <div class="ph-fields">
+            <label>Title <input id="title" type="text" autocomplete="off" /></label>
+            <label>Artist <input id="artist" type="text" autocomplete="off" /></label>
+            <label>Description <textarea id="description" rows="3"></textarea></label>
+          </div>
+          <div class="ph-actions">
+            <button class="btn" type="button" id="btnStrip">Clear metadata fields</button>
+            <button class="btn" type="button" id="btnApplyMeta">Keep fields for JPEG export</button>
+          </div>
+        </div>
+
+        <div class="ph-panel panel" data-panel="resize" hidden>
+          <div class="ph-fields ph-inline">
+            <label>Max W <input id="maxW" type="number" min="1" /></label>
+            <label>Max H <input id="maxH" type="number" min="1" /></label>
+            <label>% <input id="pct" type="number" min="1" max="400" value="100" /></label>
+          </div>
+          <div class="ph-actions">
+            <button class="btn btn-primary" type="button" id="btnResize">Apply resize</button>
+            <button class="btn" type="button" id="btnResetSize">Reload original</button>
+          </div>
+        </div>
+
+        <div class="ph-panel panel" data-panel="crop" hidden>
+          <div class="ph-actions" id="cropPresets">
+            <button class="btn" type="button" data-crop="free">Free</button>
+            <button class="btn" type="button" data-crop="1:1">1:1</button>
+            <button class="btn" type="button" data-crop="4:3">4:3</button>
+            <button class="btn" type="button" data-crop="16:9">16:9</button>
+            <button class="btn" type="button" data-crop="3:2">3:2</button>
+          </div>
+          <p class="howto">Drag the box or corner handles, then apply.</p>
+          <div class="ph-actions">
+            <button class="btn btn-primary" type="button" id="btnCropApply">Apply crop</button>
+            <button class="btn" type="button" id="btnCropClear">Clear crop</button>
+          </div>
+        </div>
+
+        <div class="ph-panel panel" data-panel="markup" hidden>
+          <div class="ph-fields ph-inline">
+            <label>Color <input id="ink" type="color" value="#22d3ee" /></label>
+            <label>Brush <input id="brush" type="range" min="1" max="48" value="6" /></label>
+          </div>
+          <div class="ph-actions">
+            <button class="btn" type="button" id="btnUndo">Undo stroke</button>
+            <button class="btn" type="button" id="btnClearInk">Clear markup</button>
+          </div>
+        </div>
+
+        <div class="ph-panel panel" data-panel="export" hidden>
+          <div class="ph-fields ph-inline">
+            <label>Format
+              <select id="fmt">
+                <option value="image/jpeg">JPEG</option>
+                <option value="image/png">PNG</option>
+              </select>
+            </label>
+            <label>JPEG quality <input id="quality" type="number" min="50" max="100" value="92" /></label>
+          </div>
+          <div class="ph-actions">
+            <button class="btn btn-primary" type="button" id="btnDownload">Download</button>
+            <button class="btn" type="button" id="btnDownloadStrip">Download stripped</button>
+          </div>
+          <p class="howto">Re-encode strips EXIF/XMP/ICC. “Download stripped” skips rewriting title/artist tags.</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="../js/photo.js"></script>
+</body>
+</html>

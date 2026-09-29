@@ -40,7 +40,8 @@ window.CMI18N = {
       navHome: "Home",
       navLegal: "Legal",
       navContact: "Contact",
-      openUtilities: "Open Utilities"
+      openUtilities: "Open Utilities",
+      photo: "Photo"
     },
     es: {
       brand: "Co_Folio",
@@ -69,7 +70,8 @@ window.CMI18N = {
       navHome: "Inicio",
       navLegal: "Legal",
       navContact: "Contacto",
-      openUtilities: "Abrir utilidades"
+      openUtilities: "Abrir utilidades",
+      photo: "Foto"
     },
     ru: {
       brand: "Co_Folio",
@@ -98,7 +100,8 @@ window.CMI18N = {
       navHome: "Главная",
       navLegal: "Правовая информация",
       navContact: "Контакт",
-      openUtilities: "Открыть утилиты"
+      openUtilities: "Открыть утилиты",
+      photo: "Фото"
     },
     zh: {
       brand: "Co_Folio",
@@ -127,7 +130,8 @@ window.CMI18N = {
       navHome: "首页",
       navLegal: "法律",
       navContact: "联系",
-      openUtilities: "打开工具集"
+      openUtilities: "打开工具集",
+      photo: "照片"
     },
     hi: {
       brand: "Co_Folio",
@@ -156,7 +160,8 @@ window.CMI18N = {
       navHome: "होम",
       navLegal: "कानूनी",
       navContact: "संपर्क",
-      openUtilities: "उपयोगिताएँ खोलें"
+      openUtilities: "उपयोगिताएँ खोलें",
+      photo: "फ़ोटो"
     },
     ar: {
       brand: "Co_Folio",
@@ -185,7 +190,8 @@ window.CMI18N = {
       navHome: "الرئيسية",
       navLegal: "قانوني",
       navContact: "تواصل",
-      openUtilities: "افتح الأدوات"
+      openUtilities: "افتح الأدوات",
+      photo: "صورة"
     },
     de: {
       brand: "Co_Folio",
@@ -214,7 +220,8 @@ window.CMI18N = {
       navHome: "Start",
       navLegal: "Rechtliches",
       navContact: "Kontakt",
-      openUtilities: "Werkzeuge öffnen"
+      openUtilities: "Werkzeuge öffnen",
+      photo: "Foto"
     },
     fi: {
       brand: "Co_Folio",
@@ -243,7 +250,8 @@ window.CMI18N = {
       navHome: "Koti",
       navLegal: "Juridinen",
       navContact: "Yhteys",
-      openUtilities: "Avaa työkalut"
+      openUtilities: "Avaa työkalut",
+      photo: "Kuva"
     },
     sv: {
       brand: "Co_Folio",
@@ -272,7 +280,8 @@ window.CMI18N = {
       navHome: "Hem",
       navLegal: "Juridiskt",
       navContact: "Kontakt",
-      openUtilities: "Öppna verktyg"
+      openUtilities: "Öppna verktyg",
+      photo: "Foto"
     },
     da: {
       brand: "Co_Folio",
@@ -301,7 +310,8 @@ window.CMI18N = {
       navHome: "Hjem",
       navLegal: "Juridisk",
       navContact: "Kontakt",
-      openUtilities: "Åbn værktøjer"
+      openUtilities: "Åbn værktøjer",
+      photo: "Foto"
     },
     th: {
       brand: "Co_Folio",
@@ -330,7 +340,8 @@ window.CMI18N = {
       navHome: "หน้าแรก",
       navLegal: "กฎหมาย",
       navContact: "ติดต่อ",
-      openUtilities: "เปิดยูทิลิตี้"
+      openUtilities: "เปิดยูทิลิตี้",
+      photo: "รูปภาพ"
     }
   }
 };
