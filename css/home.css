@@ -474,8 +474,83 @@ input, textarea, select {
   .neon-card:hover .card-3d-face { transform: none; }
 }
 
-.print-sheet { background: #fff; color: #111; padding: 28px; border-radius: 8px; }
-@media print {
-  .site-header, .no-print, .site-footer { display: none !important; }
-  body { background: #fff; color: #111; }
+/* Quick Print */
+.quick-print { padding: 36px 0 80px; }
+.qp-hint { color: var(--dim); font-size: var(--text-sm); margin: 0 0 18px; }
+.qp-toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 10px; }
+.qp-tpl.is-active {
+  border-color: rgba(125, 211, 252, 0.55);
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.22);
+  color: #fff;
+  background: rgba(124, 58, 237, 0.28);
 }
+.qp-note { color: var(--dim); font-size: var(--text-xs); margin: 0 0 18px; }
+.qp-stage {
+  position: relative;
+}
+.qp-fs-bar {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 0 0 12px;
+}
+.qp-stage:fullscreen,
+.qp-stage:-webkit-full-screen {
+  background: #05040c;
+  padding: 20px;
+  overflow: auto;
+}
+.qp-stage:fullscreen .print-sheet,
+.qp-stage:-webkit-full-screen .print-sheet {
+  max-width: 920px;
+  margin: 0 auto;
+  min-height: calc(100vh - 80px);
+}
+body.qp-is-fs .site-header { visibility: hidden; }
+
+.print-sheet {
+  background: #fff;
+  color: #111;
+  padding: 28px;
+  border-radius: 8px;
+  min-height: 320px;
+  outline: none;
+}
+.print-sheet:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.print-sheet table { border-collapse: collapse; width: 100%; }
+.print-sheet th, .print-sheet td { border-bottom: 1px solid #ddd; }
+
+@media print {
+  .site-header, .no-print, .site-footer, .qp-chrome, .qp-fs-bar, .skip { display: none !important; }
+  body, body.quick-print-page, body.qp-is-fs {
+    background: #fff !important;
+    color: #111 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  body::before, body::after { display: none !important; }
+  .quick-print, .qp-stage, main, .wrap {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .qp-stage:fullscreen, .qp-stage:-webkit-full-screen {
+    background: #fff !important;
+    padding: 0 !important;
+    position: static !important;
+  }
+  .print-sheet {
+    display: block !important;
+    background: #fff !important;
+    color: #111 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    position: static !important;
+    width: 100% !important;
+  }
+}
+

@@ -3,62 +3,151 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Corey’s Quote Note | Invoices and forms</title>
-  <meta name="description" content="Five printable templates: invoice, grocery and inventory list, work order, meeting brief, and expense report. Edit every field and save as PDF from your browser." />
+  <title>Quick Print | Corey McDaniel</title>
+  <meta name="description" content="Printable forms: invoice, list, work order, meeting brief, and expense report. Edit in the browser and save as PDF." />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#05040c" />
   <link rel="canonical" href="https://coreymcdaniel.com/quotes/" />
+  <link rel="icon" href="../img/logo-header.png" type="image/png" />
   <link rel="stylesheet" href="../css/home.css" />
 </head>
-<body>
-  <header class="site-header no-print"><div class="wrap nav"><a class="brand" href="../">Co_Folio</a><a class="nav-cta" href="../">Home</a></div></header>
-  <main class="wrap" style="padding:36px 0 80px">
-    <h1 class="grad">Corey’s Quote Note</h1>
-    <p class="howto"><strong>Why:</strong> People need clean paper they can send today without a SaaS login.<br />
-    <strong>How:</strong> Pick a template, edit every line, then use Print and choose Save as PDF.<br />
-    <strong>Help:</strong> Keep a copy on your device before you email it.<br />
-    <strong>Example:</strong> Fill an invoice for a weekend job, export PDF, attach it to a message.</p>
-    <p class="no-print">
-      <button class="btn" type="button" data-t="invoice">Invoice</button>
-      <button class="btn" type="button" data-t="list">List / inventory</button>
-      <button class="btn" type="button" data-t="work">Work order</button>
-      <button class="btn" type="button" data-t="brief">Meeting brief</button>
-      <button class="btn" type="button" data-t="expense">Expense report</button>
-      <button class="btn btn-primary" type="button" onclick="window.print()">Save PDF</button>
-    </p>
-    <section class="print-sheet" id="sheet" contenteditable="true"></section>
+<body class="quick-print-page">
+  <a class="skip no-print" href="#sheet">Skip to form</a>
+  <header class="site-header no-print">
+    <div class="wrap nav">
+      <a class="brand" href="../" aria-label="Home">
+        <img class="site-logo" src="../img/logo-header.png" alt="Home" height="40" />
+      </a>
+    </div>
+  </header>
+
+  <main class="wrap quick-print" id="quick-print">
+    <div class="qp-chrome no-print">
+      <h1 class="grad">Quick Print</h1>
+      <p class="qp-hint">Pick a form. Print or save as PDF.</p>
+      <div class="qp-toolbar" role="toolbar" aria-label="Form templates">
+        <button class="btn qp-tpl" type="button" data-t="invoice" aria-pressed="true">Invoice</button>
+        <button class="btn qp-tpl" type="button" data-t="list" aria-pressed="false">List / inventory</button>
+        <button class="btn qp-tpl" type="button" data-t="work" aria-pressed="false">Work order</button>
+        <button class="btn qp-tpl" type="button" data-t="brief" aria-pressed="false">Meeting brief</button>
+        <button class="btn qp-tpl" type="button" data-t="expense" aria-pressed="false">Expense report</button>
+        <button class="btn" type="button" id="qp-fullscreen" aria-pressed="false">Fullscreen</button>
+        <button class="btn btn-primary" type="button" id="qp-print">Save PDF</button>
+      </div>
+    </div>
+
+    <div class="qp-stage" id="qp-stage">
+      <div class="qp-fs-bar no-print" hidden>
+        <button class="btn" type="button" id="qp-exit-fs">Exit fullscreen</button>
+        <button class="btn btn-primary" type="button" id="qp-print-fs">Save PDF</button>
+      </div>
+      <section class="print-sheet" id="sheet" contenteditable="true" aria-label="Printable form"></section>
+    </div>
   </main>
+
   <script>
-    const T = {
-      invoice: `<h2>Invoice</h2>
+    (function () {
+      const T = {
+        invoice: `<h2>Invoice</h2>
       <p><strong>From</strong> [Your name / business]<br><strong>Bill to</strong> [Client]<br><strong>Invoice #</strong> 0001 · <strong>Date</strong> [today]</p>
       <table width="100%" cellpadding="8"><tr><th align="left">Description</th><th>Qty</th><th>Price</th><th>Line</th></tr>
       <tr><td>Service</td><td>1</td><td>0.00</td><td>0.00</td></tr></table>
       <p><strong>Total due</strong> 0.00 · Terms: due upon receipt</p>
       <p>Thank you. Seek first the Kingdom.</p>`,
-      list: `<h2>List / inventory</h2>
+        list: `<h2>List / inventory</h2>
       <p>Title: [Groceries / supplies / stock]</p>
       <ol><li>Item — qty — note</li><li>Item — qty — note</li><li>Item — qty — note</li></ol>
       <p>Checked by: ______ Date: ______</p>`,
-      work: `<h2>Work order</h2>
+        work: `<h2>Work order</h2>
       <p><strong>Job</strong> [name] · <strong>Location</strong> [site]<br><strong>Requested by</strong> · <strong>Assigned to</strong></p>
       <p><strong>Scope</strong><br>Describe the work, materials, and access.</p>
       <p><strong>Status</strong> New / In progress / Waiting / Done</p>
       <p><strong>Update</strong><br>What changed today.</p>
       <p>Sign off: ______</p>`,
-      brief: `<h2>Meeting brief</h2>
+        brief: `<h2>Meeting brief</h2>
       <p><strong>Purpose</strong> · <strong>Date</strong> · <strong>Attendees</strong></p>
       <p><strong>Agenda</strong><br>1.<br>2.<br>3.</p>
       <p><strong>Decisions</strong></p>
       <p><strong>Next steps / owners / dates</strong></p>`,
-      expense: `<h2>Expense report</h2>
+        expense: `<h2>Expense report</h2>
       <p><strong>Name</strong> · <strong>Period</strong></p>
       <table width="100%" cellpadding="8"><tr><th align="left">Date</th><th>Merchant</th><th>Category</th><th>Amount</th></tr>
       <tr><td></td><td></td><td></td><td></td></tr></table>
       <p><strong>Total</strong> · Approved by: ______</p>`
-    };
-    const sheet = document.getElementById("sheet");
-    const show = (k) => { sheet.innerHTML = T[k]; };
-    show("invoice");
-    document.querySelectorAll("[data-t]").forEach((b) => b.onclick = () => show(b.dataset.t));
+      };
+
+      const sheet = document.getElementById("sheet");
+      const stage = document.getElementById("qp-stage");
+      const fsBar = document.querySelector(".qp-fs-bar");
+      const fsBtn = document.getElementById("qp-fullscreen");
+      const tplBtns = [...document.querySelectorAll(".qp-tpl")];
+      let active = "invoice";
+
+      const show = (k) => {
+        sheet.innerHTML = T[k];
+        active = k;
+        tplBtns.forEach((b) => {
+          const on = b.dataset.t === k;
+          b.classList.toggle("is-active", on);
+          b.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+      };
+
+      const isFs = () => Boolean(document.fullscreenElement);
+
+      const syncFsUi = () => {
+        const on = isFs();
+        fsBtn.setAttribute("aria-pressed", on ? "true" : "false");
+        fsBtn.textContent = on ? "Exit fullscreen" : "Fullscreen";
+        if (fsBar) fsBar.hidden = !on;
+        document.body.classList.toggle("qp-is-fs", on);
+      };
+
+      const enterFs = async () => {
+        try {
+          if (stage.requestFullscreen) await stage.requestFullscreen();
+          else if (stage.webkitRequestFullscreen) stage.webkitRequestFullscreen();
+        } catch (_) {}
+        syncFsUi();
+      };
+
+      const exitFs = async () => {
+        try {
+          if (document.fullscreenElement) await document.exitFullscreen();
+          else if (document.webkitFullscreenElement) document.webkitExitFullscreen();
+        } catch (_) {}
+        syncFsUi();
+      };
+
+      const toggleFs = () => (isFs() ? exitFs() : enterFs());
+
+      show("invoice");
+
+      tplBtns.forEach((b) => {
+        b.addEventListener("click", () => {
+          const key = b.dataset.t;
+          if (key === active) {
+            toggleFs();
+            return;
+          }
+          show(key);
+        });
+      });
+
+      fsBtn.addEventListener("click", toggleFs);
+      document.getElementById("qp-exit-fs")?.addEventListener("click", exitFs);
+      document.getElementById("qp-print")?.addEventListener("click", () => window.print());
+      document.getElementById("qp-print-fs")?.addEventListener("click", () => window.print());
+
+      document.addEventListener("fullscreenchange", syncFsUi);
+      document.addEventListener("webkitfullscreenchange", syncFsUi);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && isFs()) {
+          // Browser exits FS; sync on event. Extra guard:
+          syncFsUi();
+        }
+      });
+    })();
   </script>
 </body>
 </html>
